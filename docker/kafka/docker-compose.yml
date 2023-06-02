@@ -1,0 +1,51 @@
+# yaml 配
+version: '2'
+services:
+    zookeeper:
+        image: wurstmeister/zookeeper
+        ports:
+            - 2181:2181
+    kafka1:
+        image: wurstmeister/kafka
+        depends_on:
+            - zookeeper
+        ports:
+            - 9093:9093
+        environment:
+            KAFKA_ADVERTISED_HOST_NAME: kafka1
+            KAFKA_ZOOKEEPER_CONNECT: zookeeper:2181
+            KAFKA_LISTENERS: PLAINTEXT://:9093
+            KAFKA_ADVERTISED_LISTENERS: PLAINTEXT://192.168.0.109:9093
+            KAFKA_BROKER_ID: 1
+    kafka2:
+        image: wurstmeister/kafka
+        depends_on:
+            - zookeeper
+        ports:
+            - 9094:9094
+        environment:
+            KAFKA_ADVERTISED_HOST_NAME: kafka2
+            KAFKA_ZOOKEEPER_CONNECT: zookeeper:2181
+            KAFKA_LISTENERS: PLAINTEXT://:9094
+            KAFKA_ADVERTISED_LISTENERS: PLAINTEXT://192.168.0.109:9094
+            KAFKA_BROKER_ID: 2
+    kafka3:
+        image: wurstmeister/kafka
+        depends_on:
+            - zookeeper
+        ports:
+            - 9095:9095
+        environment:
+            KAFKA_ADVERTISED_HOST_NAME: kafka3
+            KAFKA_ZOOKEEPER_CONNECT: zookeeper:2181
+            KAFKA_LISTENERS: PLAINTEXT://:9095
+            KAFKA_ADVERTISED_LISTENERS: PLAINTEXT://192.168.0.109:9095
+            KAFKA_BROKER_ID: 3
+    kafka-manager:
+      image: sheepkiller/kafka-manager                # 镜像：开源的web管理kafka集群的界面
+      depends_on:
+          - zookeeper      
+      environment:
+          ZK_HOSTS: 192.168.0.109                     # 修改:宿主机IP
+      ports:  
+        - "9009:9000"                                 ## 暴露端口 
