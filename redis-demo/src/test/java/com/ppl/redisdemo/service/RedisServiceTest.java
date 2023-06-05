@@ -6,8 +6,6 @@ import org.springframework.boot.test.context.SpringBootTest;
 
 import java.util.List;
 
-import static org.junit.jupiter.api.Assertions.*;
-
 /**
  * Created by pisiliang on 2023/6/5 17:32
  */
