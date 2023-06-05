@@ -4,10 +4,11 @@ import org.springframework.data.redis.cache.RedisCache;
 import org.springframework.data.redis.cache.RedisCacheConfiguration;
 import org.springframework.data.redis.cache.RedisCacheManager;
 import org.springframework.data.redis.cache.RedisCacheWriter;
+import org.springframework.lang.Nullable;
+
 /**
- * author:zj
- * Date:2020/4/8
- * Time:15:01
+ * Created by pisiliang on 2023/6/5 17:31
+ *
  */
 public class MyRedisCacheManager extends RedisCacheManager {
     private final RedisCacheWriter cacheWriter;
@@ -15,7 +16,7 @@ public class MyRedisCacheManager extends RedisCacheManager {
 
     /** 用于返回自定义的redisCache **/
     @Override
-    protected RedisCache createRedisCache(String name, RedisCacheConfiguration cacheConfig) {
+    protected RedisCache createRedisCache(@Nullable String name,RedisCacheConfiguration cacheConfig) {
         return new CustomizeRedisCache(name, cacheWriter, cacheConfig != null ? cacheConfig : defaultCacheConfig);
 
     }

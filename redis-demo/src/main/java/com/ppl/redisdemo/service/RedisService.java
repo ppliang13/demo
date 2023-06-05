@@ -14,7 +14,7 @@ public class RedisService {
 
     /**
      * 将结果集缓存，当结果集已缓存，从缓存中获取结果集，一般长用于数据删除
-     * @return
+     * @return list
      */
     @Cacheable(value = "cacheTest#60",key = "#root.methodName")
     public List<String> getRedisCache(){
@@ -27,5 +27,6 @@ public class RedisService {
         list.add("test");
         return list;
     }
+
 
 }

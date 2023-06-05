@@ -10,11 +10,8 @@ import java.util.List;
 import java.util.regex.Pattern;
 
 /**
- * author:zj
- * Date:2020/4/8
- * Time:14:55
+ * Created by pisiliang on 2023/6/5 17:31
  * 通过重写RedisCache中的put的方法 实现spring cache 自定义key ttl事件
- *
  */
 public class CustomizeRedisCache extends RedisCache {
 
@@ -75,11 +72,9 @@ public class CustomizeRedisCache extends RedisCache {
     }
 
     /**
-     *@描述  现有key 值格式为  key#ttl ;改方法将key 值后边的#ttl 去掉 ；例如test# 10；改方法处理后为test
-     *@参数
-     *@返回值
-     *@创建人  zj
-     *@创建时间  2020/4/8
+     * 创建缓存的key
+     * @param key key名称
+     * @return 设置时间
      */
     protected String createCacheKey(Object key) {
         String convertedKey = convertKey(key);
