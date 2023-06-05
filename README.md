@@ -27,6 +27,7 @@ spring thread
 锁
 事务
 log4j
+scrapy
 
 设计模式
 

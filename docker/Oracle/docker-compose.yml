@@ -1,0 +1,10 @@
+# yaml 配
+version: '2'
+services:
+  redis:
+    image: redis:latest
+    ports:
+      - "6379:6379"
+    volumes:
+      - ./redis/conf/redis.conf:/usr/local/etc/redis/redis.conf
+#      - /opt/redis/conf/redis.conf:/usr/local/etc/redis/redis.conf
