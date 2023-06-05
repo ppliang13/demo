@@ -17,6 +17,7 @@ mybatis
 mybatis-plus
 spring-data
 spring-jpa
+多数源模式
 自动生产代码
 
 selenium
@@ -35,3 +36,8 @@ log4j
 单点登录
 登录共享
 业务流程
+
+
+商用单例应用
+
+商用微服务应用
