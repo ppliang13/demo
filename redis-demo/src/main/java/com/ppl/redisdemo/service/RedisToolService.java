@@ -4,7 +4,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.redis.core.*;
 import org.springframework.stereotype.Service;
 
-import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
@@ -82,15 +81,15 @@ public class RedisToolService {
     }
 
     // 存储 ZSet 类型
-    public void setZSet(String key, Map<Object, Double> map) {
-        ZSetOperations<String, Object> ops = redisTemplate.opsForZSet();
-        Set<DefaultTypedTuple<Object>> tuples = new HashSet<>();
-        for (Map.Entry<Object, Double> entry : map.entrySet()) {
-            DefaultTypedTuple<Object> tuple = new DefaultTypedTuple<>(entry.getKey(), entry.getValue());
-            tuples.add(tuple);
-        }
-        ops.add(key, tuples);
-    }
+//    public void setZSet(String key, Map<Object, Double> map) {
+//        ZSetOperations<String, Object> ops = redisTemplate.opsForZSet();
+//        Set<DefaultTypedTuple<Object>> tuples = new HashSet<>();
+//        for (Map.Entry<Object, Double> entry : map.entrySet()) {
+//            DefaultTypedTuple<Object> tuple = new DefaultTypedTuple<>(entry.getKey(), entry.getValue());
+//            tuples.add(tuple);
+//        }
+//        ops.add(key, tuples);
+//    }
 
     // 查询 ZSet 类型
     public Set<Object> getZSet(String key) {
